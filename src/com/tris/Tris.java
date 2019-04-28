@@ -25,7 +25,6 @@ public class Tris {
 
     public String setSign(int x, int y, String sign) {
         String result = "";
-        try {
             if ((getX().equalsIgnoreCase(sign) || getO().equalsIgnoreCase(sign))) {
                 if (numberOfTurn == 0) {
                     board[x][y] = sign;
@@ -37,7 +36,7 @@ public class Tris {
                     return result + "GAME OVER. START NEW GAME";
                 }
                 else if (!sign.equals(lastSign)) {
-                    if (board[x][y].equals("")) {
+                    if (board[x][y].equals(" ")) {
                         board[x][y] = sign;
                         lastSign = sign;
                         numberOfTurn++;
@@ -53,14 +52,9 @@ public class Tris {
                 } else return result + "IT'S NOT YOUR TURN";
             }
             else return result + "YOU INSERT WRONG SIGN";
-        } catch (Exception exc) {
-            System.out.println("INSERT WRONG, PLEASE RETRY");
-        }
-        return result;
     }
 
-    private String getWinner()
-    {
+    private String getWinner() {
         int k = 0;
         int h = 0;
         // Test if  tris is right in some row or column
